@@ -3,9 +3,12 @@ import React, { useEffect, useState } from 'react'
 import Card from './Card';
 import {Iprops} from '../Interfacses'
 
+interface Props {
+  toggle : boolean
+}
 
 
-const Home:React.FC = () => {
+const Home = ({toggle}:Props) => {
 
     const [data, setData] = useState<Iprops[]>([]);
     console.log(data,"data")
@@ -30,7 +33,7 @@ const Home:React.FC = () => {
         <div className="main">
           {data &&
             data.map((item : Iprops,index:number) => {
-              return <Card key={index} item = {item} />;
+              return <Card key={index} item = {item} toggle={toggle} />;
             })}
         </div>
        

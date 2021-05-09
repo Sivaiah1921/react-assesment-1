@@ -1,16 +1,25 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from 'react';
+// import './App.css';
 import Home from './components/Home';
-
+import { BsFillBrightnessHighFill ,BsMoon} from "react-icons/bs";
 
 
 function App() {
+  const [toggle,setToggle] = useState<boolean>(false)
+
+ const handleChangeTheme = ()=>{
+  setToggle(!toggle)
+ }
+
   return (
-    <div className="App">
+    <div className={`${toggle ? 'App__toogle' : 'App'}`}>
       <div className="heading">
         <h1>Users List</h1>
+        <div className="heading__icon" onClick={handleChangeTheme}>{toggle ? <BsFillBrightnessHighFill /> : < BsMoon /> }</div>
       </div>
-         <Home />
+      <div className="App__home">
+           <Home toggle={toggle}/> 
+         </div>
       <div className="footer">
         @copyright
       </div>

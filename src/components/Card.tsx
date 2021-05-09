@@ -3,16 +3,17 @@ import {Iprops} from './../Interfacses'
 
 interface Props {
   item :Iprops
+  toggle: boolean
 }
 
-const Card = ({item}:Props) => {
+const Card = ({item,toggle}:Props) => {
 
     console.log(item, "items");
     return (
-      <div className="card">
+      <div className={`${toggle ? 'card__toggle': 'card'}`}>
         {<img src={item.avatar} alt="no-img" className="card__img" />}
         <div className="card__details">
-          <div  className='card__content'>
+          <div  className={`${toggle ? 'card__content__toggle' : 'card__content'}`}>
             {` ${item.first_name}${item.last_name}`}
   
           </div>
