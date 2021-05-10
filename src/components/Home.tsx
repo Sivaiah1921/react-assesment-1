@@ -25,7 +25,6 @@ const Home = ({toggle}:Props) => {
         .catch(e => console.log(e, "error"));
     };
     
-   
   
     return (
       <div className="home">
